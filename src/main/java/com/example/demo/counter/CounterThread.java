@@ -1,4 +1,4 @@
-package com.example.demo.Counter;
+package com.example.demo.counter;
 
 import org.springframework.stereotype.Component;
 

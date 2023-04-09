@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import com.example.demo.Counter.CounterService;
-import com.example.demo.Counter.CounterThread;
+import com.example.demo.counter.CounterService;
+import com.example.demo.counter.CounterThread;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -28,7 +28,7 @@ public class Calculator {
     int result = 0;
     @Autowired
     private Cache cache;
-    @GetMapping("/hello")
+    @GetMapping("/calculator")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<String> hello(@Valid @NotNull(message = "First number cannot be null") @RequestParam(value = "first") String first,
                                         @Valid @NotNull(message = "Second number cannot be null") @RequestParam(value = "second") String second,
@@ -39,7 +39,7 @@ public class Calculator {
         String cachedResult = cache.get(cacheKey);
         if (cachedResult != null) {
             logger.info("Retrieved result from cache");
-            return ResponseEntity.ok("result="+cachedResult+"counter="+CounterService.getCounter());
+            return ResponseEntity.ok("result from cache="+cachedResult+"  counter="+CounterService.getCounter());
         }
         int num1 = Integer.parseInt(first);
         int num2 = Integer.parseInt(second);

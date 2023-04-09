@@ -1,4 +1,4 @@
-package com.example.demo.Counter;
+package com.example.demo.counter;
 
 public class  CounterService {
     private static int counter = 0;
