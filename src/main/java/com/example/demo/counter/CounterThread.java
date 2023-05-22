@@ -9,4 +9,5 @@ public class CounterThread extends Thread{
     public void start() {
         CounterService.incrementCounter();
     }
+
 }
